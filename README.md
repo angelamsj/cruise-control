@@ -5,10 +5,12 @@ This project consists on extending the cruise control Elma application. This ext
 ## Resources
 
 - Elma library
-- GNU plot
+- [GNU plot](http://www.gnuplot.info/)
+- [C++ interface to GNU plot](http://ndevilla.free.fr/gnuplot/)
+- [Math GL](http://mathgl.sourceforge.net/doc_en/Main.html)
+- [Cruise control model](http://www.cds.caltech.edu/~murray/amwiki/index.php/Cruise_control)
 - C++ libraries 
 - Docker
-- [Cruise control model](http://www.cds.caltech.edu/~murray/amwiki/index.php/Cruise_control)
 
 ## Milestones
 
