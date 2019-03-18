@@ -12,6 +12,7 @@ void CruiseControl::init() {
 
 void CruiseControl::update() {
     update_speed();
+    update_error();
     send_control_signal();
 }
 
@@ -26,13 +27,37 @@ void CruiseControl::update_speed() {
 }
 
 void CruiseControl::send_control_signal() {
-    channel("Throttle").send(calculate_control_signal());
+    channel("Throttle").send(control_signal());
 }
 
-int CruiseControl::calculate_error() {
-    return _desired_speed - _speed;
+void CruiseControl::update_error() {
+    _previous_error = _error;
+    _error = _desired_speed - _speed;
 }
 
-int CruiseControl::calculate_control_signal() {
-    return _kp * calculate_error();
+double CruiseControl::control_signal() {
+    return proportional_action() + integral_action() + derivative_action();
 }
+
+double CruiseControl::proportional_action() {
+    return _kp * _error;
+}
+
+double CruiseControl::integral_action() {
+    return _ki *_error_integral;
+}
+
+void CruiseControl::integrate_error() {
+    _error_integral += _error * delta() / 1000;
+}
+
+double CruiseControl::derivative_action() {
+    return _kd * error_derivative();
+}
+
+double CruiseControl::error_derivative() {
+    return (_error - _previous_error) * (delta() / 1000);
+}
+
+
+

@@ -13,11 +13,11 @@ void Driver::update() {
 }
 
 void Driver::update_desired_speed() {
-    if (_desired_speed == 50) {
-        _desired_speed = 70;
-    } else {
+  //  if (_desired_speed == 50) {
+  //      _desired_speed = 0;
+  //  } else {
         _desired_speed = 50;       
-    }
+  //  }
 }
 
 void Driver::send_desired_speed() {

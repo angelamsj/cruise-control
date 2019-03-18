@@ -21,10 +21,10 @@ int main() {
 
     m.schedule(car, 100_ms)
     .schedule(cc, 100_ms)
-    .schedule(driver, 5_s)
+    .schedule(driver, 15_s)
     .add_channel(throttle)
     .add_channel(velocity)
     .init()
-    .run(40_s);
+    .run(120_s);
 
 }
