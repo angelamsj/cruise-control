@@ -31,8 +31,10 @@ void CruiseControl::send_control_signal() {
 }
 
 void CruiseControl::update_error() {
-    _previous_error = _error;
+    double previous_error = _error;
     _error = _desired_speed - _speed;
+    _cummulative_error += _error;
+    _differential_error = _error - previous_error;
 }
 
 double CruiseControl::control_signal() {
@@ -44,20 +46,14 @@ double CruiseControl::proportional_action() {
 }
 
 double CruiseControl::integral_action() {
-    return _ki *_error_integral;
-}
-
-void CruiseControl::integrate_error() {
-    _error_integral += _error * delta() / 1000;
+    return _ki *_cummulative_error;
 }
 
 double CruiseControl::derivative_action() {
-    return _kd * error_derivative();
+    return _kd * _differential_error;
 }
 
-double CruiseControl::error_derivative() {
-    return (_error - _previous_error) * (delta() / 1000);
-}
+
 
 
 

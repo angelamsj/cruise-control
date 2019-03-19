@@ -21,11 +21,11 @@ class CruiseControl : public elma::Process {
     double _speed = 0.0;
     double _desired_speed = 0.0; 
     double _error = 0.0;
-    double _error_integral = 0.0;
-    double _previous_error = 0.0;
-    const double _kp = 700;
-    const double _ki = 50;
-    const double _kd = 12.5;
+    double _cummulative_error = 0.0;
+    double _differential_error = 0.0;
+    const double _kp = 450;
+    const double _ki = 45;
+    const double _kd = 5;
 
 
     //std::vector<double> _v;
@@ -36,9 +36,7 @@ class CruiseControl : public elma::Process {
     double control_signal();
     double proportional_action();
     double integral_action();
-    void integrate_error();
     double derivative_action();
-    double error_derivative();
 
 };
 

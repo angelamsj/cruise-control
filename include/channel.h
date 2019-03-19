@@ -35,6 +35,7 @@ namespace elma {
         Channel& flush();
         json latest();
         json earliest();
+        //void change_capacity(int new_capacity);
 
         //! Getter
         //! \return The number of values in the channel
