@@ -7,11 +7,11 @@ namespace elma {
     //! Send a value
     //! \param value The value to send into the channel
     //! \return A reference to the channel, for chaining
-    Channel& Channel::send(json value) {
-        _queue.push_front(value);
+    Channel& Channel::send(json value) {    
         while ( _queue.size() > capacity() ) {
-            _queue.pop_back();
+            flush();
         }
+        _queue.push_front(value);
         return *this;
     }
 
@@ -40,6 +40,11 @@ namespace elma {
             throw Exception("Tried to get the earliest value in an empty channel.");
         }
         return _queue.back();        
-    }    
+    }
+
+    //void Channel::change_capacity(int new_capacity) {      
+    //    _queue.resize(new_capacity);
+    //    _capacity =  new_capacity; 
+    //}    
 
 }

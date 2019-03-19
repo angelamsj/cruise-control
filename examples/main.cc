@@ -25,6 +25,6 @@ int main() {
     .add_channel(throttle)
     .add_channel(velocity)
     .init()
-    .run(120_s);
+    .run(90_s);
 
 }
