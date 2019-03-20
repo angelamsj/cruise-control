@@ -37,9 +37,9 @@ void Car::send_velocity() {
 }
 
 void Car::print_time_force_velocity() {
-    cout << "t: " << milli_time() << " ms, \t";
-    cout << "f: " << _force << " N, \t";
-    cout << "v: " << _velocity << " m/s." << endl;
+    //cout << "t: " << milli_time() << " ms, \t";
+    //cout << "f: " << _force << " N, \t";
+    //cout << "v: " << _velocity << " m/s." << endl;
 }
 
 int Car::sgn() {
