@@ -14,7 +14,7 @@ SRCEXT      := cc
 
 #Flags, Libraries and Includes
 CFLAGS      := -fsanitize=address -ggdb
-LIB         := -L../lib -lgtest -lpthread -lasan -lelma -lssl -lcrypto
+LIB         := -L../lib -lgtest -lpthread -lasan -lelma -lssl -lcrypto -lmgl
 INC         := -I$(INCDIR)
 INCDEP      := -I$(INCDIR)
 ELMALIB		:= ../lib/libelma.a

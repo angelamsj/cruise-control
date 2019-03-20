@@ -15,16 +15,19 @@ int main() {
     Manager m;
     Car car("Car");
     CruiseControl cc("Control");
+    cc.set_kp(100);
+    cc.set_ki(2);
+    cc.set_kd(0.5);
     Driver driver("Steve");
     Channel throttle("Throttle");
     Channel velocity("Velocity");
 
-    m.schedule(car, 100_ms)
-    .schedule(cc, 100_ms)
-    .schedule(driver, 15_s)
+    m.schedule(car, 250_ms)
+    .schedule(cc, 250_ms)
+    .schedule(driver, 30_s)
     .add_channel(throttle)
     .add_channel(velocity)
     .init()
-    .run(90_s);
+    .run(150_s);
 
 }

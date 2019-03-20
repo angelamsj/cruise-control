@@ -2,6 +2,7 @@
 #define _CRUISE_CONTROL_H
 
 #include <elma.h>
+#include <mgl2/mgl.h> 
 
 class CruiseControl : public elma::Process {
 
@@ -12,9 +13,11 @@ class CruiseControl : public elma::Process {
     void init();
     void start() {}
     void update();
-    void stop() {}
+    void stop();
 
-    //void set_kp(int kp);
+    void set_kp(double kp);
+    void set_ki(double ki);
+    void set_kd(double kd);
 
     private:
     
@@ -23,20 +26,27 @@ class CruiseControl : public elma::Process {
     double _error = 0.0;
     double _cummulative_error = 0.0;
     double _differential_error = 0.0;
-    const double _kp = 450;
-    const double _ki = 45;
-    const double _kd = 5;
+    double _kp;
+    double _ki;
+    double _kd;
+    std::vector<double> _control_signal_log;
+    std::vector<double> _velocity_log;
+    std::vector<double> _time;
 
-
-    //std::vector<double> _v;
-
-    void update_speed();
-    void send_control_signal();
+    void update_speed(double velocity);
+    double read_velocity();
+    void send_control_signal(double control);
     void update_error(); 
     double control_signal();
     double proportional_action();
     double integral_action();
     double derivative_action();
+    void log_control_signal(double control);
+    void log_velocity(double velocity);
+    void print_control_log();
+    void plot_control(mglGraph plot); 
+    void plot_velocity(mglGraph plot);
+    void plot();
 
 };
 
