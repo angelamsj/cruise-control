@@ -1,16 +1,13 @@
 # Cruise control using Elma
 
-This project consists on extending the cruise control Elma application. This extended version will include a more sofisticated model of the dynamics of the car and a PID controller. To evaluate the performance of the system, data aquired from simulations will be plotted. This project builds upon the [Elma library](https://github.com/klavinslab/elma.git).
+This project consists on extending the cruise control Elma application. This extended version will include a more sofisticated model of the dynamics of the car and a PID controller. To evaluate the performance of the system, data aquired from simulations will be plotted. This project builds upon the driving example of the Elma repository. 
 
 ## Resources
 
-- Elma library
-- [GNU plot](http://www.gnuplot.info/)
-- [C++ interface to GNU plot](http://ndevilla.free.fr/gnuplot/)
+- [Elma](https://github.com/klavinslab/elma.git).
 - [Math GL](http://mathgl.sourceforge.net/doc_en/Main.html)
 - [Cruise control model](http://www.cds.caltech.edu/~murray/amwiki/index.php/Cruise_control)
-- C++ libraries 
-- Docker
+
 
 ## Milestones
 
