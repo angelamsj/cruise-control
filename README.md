@@ -4,7 +4,7 @@ This project consists on extending the cruise control Elma application. This ext
 
 ## Resources
 
-- [Elma](https://github.com/klavinslab/elma.git).
+- [Elma](https://github.com/klavinslab/elma.git)
 - [MathGL](http://mathgl.sourceforge.net/doc_en/Main.html)
 - [Cruise control model](http://www.cds.caltech.edu/~murray/amwiki/index.php/Cruise_control)
 
@@ -105,7 +105,7 @@ The throttle is proportional to de control signal (u), which has the following r
 
 ### Proportional action
 
-  *u_p = P error  
+  *u_p = P error*  
   
 ### Integral action
 
@@ -114,6 +114,8 @@ The throttle is proportional to de control signal (u), which has the following r
 ### Derivartive action
 
   *u_d = D (error - previous error)* 
+  
+  
 
 ## License
 ---
