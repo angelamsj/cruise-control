@@ -5,7 +5,7 @@ This project consists on extending the cruise control Elma application. This ext
 ## Resources
 
 - [Elma](https://github.com/klavinslab/elma.git).
-- [Math GL](http://mathgl.sourceforge.net/doc_en/Main.html)
+- [MathGL](http://mathgl.sourceforge.net/doc_en/Main.html)
 - [Cruise control model](http://www.cds.caltech.edu/~murray/amwiki/index.php/Cruise_control)
 
 
@@ -14,8 +14,14 @@ This project consists on extending the cruise control Elma application. This ext
 1. 03/12 - Define dynamics of new model.
 2. 03/13 - Implement new model.
 3. 03/16 - Implement PID controller. 
-4. 03/19 - Get the GNU plot working.
-5. 03/22 - Test anf finish project.
+4. 03/19 - Get MathGL plot working.
+5. 03/22 - Test and finish project.
+
+## Notes
+
+- The MathGL package can be installed by runninng the following command on the docker terminal:
+    
+      apt-get install mathgl
 
 ## Model Dynamics
 
@@ -92,11 +98,24 @@ The throttle is proportional to de control signal (u), which has the following r
   - rho: density of the air (typical value 1.3 kg/m^3).
   - Cd: shape-dependent aerodynamic drag coefficient (typical value 0.32).
   - A: frontal area of the car (~ 2.4 m^2).
-
   
+## PID controller
 
+  *u = u_p + u_i + u_d*
 
-### License
+### Proportional action
+
+  *u_p = P error  
+  
+### Integral action
+
+  *u_i = I cumulative_error*
+  
+### Derivartive action
+
+  *u_d = D (error - previous error)* 
+
+## License
 ---
 
 This software is open source and uses the MIT license. 
